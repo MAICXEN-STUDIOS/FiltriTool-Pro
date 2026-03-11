@@ -7,7 +7,14 @@ import math
 
 from core.filter_logic import FilterSynthesizer
 from core.theme import Theme
-from core.whitelist import WHITELIST_EMAILS, PASSWORD_CORRETTA
+# Leggiamo le credenziali dalla cassaforte protetta di Streamlit (Secrets)
+try:
+    WHITELIST_EMAILS = st.secrets["WHITELIST_EMAILS"]
+    PASSWORD_CORRETTA = st.secrets["PASSWORD_CORRETTA"]
+except FileNotFoundError:
+    # Fallback per testare l'app in locale sul tuo Mac
+    WHITELIST_EMAILS = ["emanuele@unige.it"]
+    PASSWORD_CORRETTA = "test"
 
 st.set_page_config(page_title="FiltroTool Pro", page_icon="⚡", layout="wide")
 st.markdown(Theme.get_streamlit_css(), unsafe_allow_html=True)
