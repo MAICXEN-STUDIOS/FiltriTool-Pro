@@ -1,8 +1,8 @@
 # core/whitelist.py
 
 WHITELIST_EMAILS = [
-    "emanuele@unige.it",
-    "professore@unige.it"
+    "emanuele@filtri.it",
+    "professore@filtri.it"
 ]
 
-PASSWORD_CORRETTA = "filtri2024"
+PASSWORD_CORRETTA = "filtri2026"
