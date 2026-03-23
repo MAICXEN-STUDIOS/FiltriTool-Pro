@@ -1,10 +1,11 @@
+# core/theme.py
+
 class Theme:
     """Design System Centralizzato - Stile Apple macOS / SwiftUI"""
     
     BG_GRADIENT_START = "#1A1A1D"
     BG_GRADIENT_END = "#000000"
     
-    # Effetti Glassmorphism
     GLASS_BG = "rgba(44, 44, 46, 0.4)"
     GLASS_BORDER = "rgba(255, 255, 255, 0.15)"
     INPUT_BG = "rgba(0, 0, 0, 0.25)"
@@ -21,28 +22,6 @@ class Theme:
     FONT_FAMILY = "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
     FONT_CODE = "'Menlo', Consolas, monospace"
     RADIUS = "12px"
-    
-    @classmethod
-    def get_pyqt_stylesheet(cls):
-        return f"""
-            QMainWindow, QWidget {{ font-family: {cls.FONT_FAMILY}; font-size: 13px; color: {cls.TEXT_PRIMARY}; }}
-            QMainWindow {{ background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 {cls.BG_GRADIENT_START}, stop:1 {cls.BG_GRADIENT_END}); }}
-            QTabWidget::pane {{ border: none; background: transparent; }}
-            QTabBar::tab {{ background: rgba(255, 255, 255, 0.05); color: {cls.TEXT_SECONDARY}; padding: 8px 24px; border-radius: 8px; margin: 4px 2px; font-weight: 600; font-size: 14px; }}
-            QTabBar::tab:selected {{ background: rgba(255, 255, 255, 0.15); color: {cls.TEXT_PRIMARY}; border: 0.5px solid {cls.GLASS_BORDER}; }}
-            QTabBar::tab:hover:!selected {{ background: rgba(255, 255, 255, 0.08); color: #D1D1D6; }}
-            QGroupBox {{ background-color: {cls.GLASS_BG}; border: 1px solid {cls.GLASS_BORDER}; border-radius: {cls.RADIUS}; margin-top: 25px; padding-top: 20px; }}
-            QGroupBox::title {{ subcontrol-origin: margin; left: 15px; top: 5px; color: {cls.TEXT_SECONDARY}; font-weight: 600; text-transform: uppercase; font-size: 12px; }}
-            QLineEdit, QComboBox, QTextEdit {{ background-color: {cls.INPUT_BG}; color: {cls.TEXT_PRIMARY}; border: 1px solid {cls.GLASS_BORDER}; padding: 8px 12px; border-radius: 8px; }}
-            QLineEdit:focus, QComboBox:focus, QTextEdit:focus {{ border: 1px solid {cls.ACCENT}; background-color: rgba(10, 132, 255, 0.05); }}
-            QComboBox::drop-down {{ border: none; }}
-            QRadioButton {{ color: {cls.TEXT_PRIMARY}; spacing: 10px; font-weight: 500; }}
-            QRadioButton::indicator {{ width: 18px; height: 18px; border-radius: 9px; border: 1px solid #666666; background-color: rgba(0,0,0,0.3); }}
-            QRadioButton::indicator:checked {{ border: 5px solid {cls.ACCENT}; background-color: {cls.BG_GRADIENT_START}; }}
-            QPushButton {{ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #2C8CFF, stop:1 {cls.ACCENT}); color: white; font-weight: bold; font-size: 14px; padding: 10px; border-radius: 10px; border: 1px solid rgba(0,0,0,0.3); }}
-            QPushButton:hover {{ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 {cls.ACCENT_HOVER}, stop:1 #1A8DFF); }}
-            QPushButton:pressed {{ background: #005bb5; border: none; }}
-        """
 
     @classmethod
     def get_streamlit_css(cls):
